@@ -306,6 +306,19 @@ input[type="reset"] {
 	@extend .button;
 }
 
+progress {
+	border: 0;
+	height: 18px;
+	border-radius: 9px;
+	&::-webkit-progress-value {
+		background: #000;
+	}
+
+	&::-moz-progress-bar {
+		background: #000;
+	}
+}
+
 @include breakpoint(tablet) {
 
 	nav.basic {
