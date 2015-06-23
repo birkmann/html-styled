@@ -1,3 +1,11 @@
+$color-primary: #38e;
+$color-disabled: #999;
+
+* {
+	box-sizing: border-box;
+	outline: 0 none;
+}
+
 p {
 	margin: 0 0 15px;
 }
@@ -71,9 +79,194 @@ blockquote {
 
 table {
 	width: 100%;
+	caption {
+		font-size: 0.8em;
+	}
 	thead {
 		th {
 			font-weight: bold;
 		}
 	}
+}
+
+hr {
+	border: 0;
+	border-top: 1px solid #ccc;
+}
+
+article {
+	margin: 10px 0;
+}
+
+form {
+	fieldset {}
+	legend {}
+	p {
+		margin: 0 0 10px;
+	}
+	label {
+		width: 100%;
+		display: block;
+	}
+	textarea,
+	input[type="text"],
+	input[type="search"],
+	input[type="password"],
+	input[type="url"],
+	input[type="email"],
+	input[type="number"],
+	input[type="date"],
+	input[type="month"],
+	input[type="week"],
+	input[type="datetime"],
+	input[type="datetime-local"] {
+		width: 100%;
+		padding: 6px 10px;
+		font-size: 0.8em;
+		border: 1px solid #ccc;
+		line-height: 1.4em;
+	}
+	input[type="range"] {
+		width: 100%;
+	}
+	.list--bare {
+		padding: 0;
+		li {
+			list-style: none;
+		}
+	}
+	.switch {
+		margin: -5px 0 -5px 0px;
+		-webkit-appearance: none;
+		width: 60px;
+		height: 26px;
+		background: $color-disabled;
+		border-radius: 999px;
+		cursor: pointer;
+		transition: background 0.3s ease-out;
+		&:focus {
+			outline: none;
+		}
+
+		&:checked {
+			background: $color-primary;
+		}
+
+		&:after {
+			content: '';
+			display: block;
+			background: white;
+			width: 20px;
+			height: 20px;
+			border-radius: 999px;
+			position: relative;
+			top: 3px;
+			left: 3px;
+			transition: left 0.3s ease-out;
+		}
+
+		&:checked:after {
+			left: 36px;
+		}
+	}
+	.radio {
+		margin: -5px 0 -5px 0px;
+		-webkit-appearance: none;
+		width: 26px;
+		height: 26px;
+		background: $color-disabled;
+		border-radius: 9999px;
+		transition: background 0.3s ease-out;
+		cursor: pointer;
+		&:after {
+			content: '';
+			display: block;
+			background: white;
+			width: 0px;
+			height: 0px;
+			border-radius: 999px;
+			position: relative;
+			top: 13px;
+			left: 13px;
+			transition: 0.3s ease-out;
+		}
+
+		&:checked:after {
+			width: 20px;
+			height: 20px;
+			top: 3px;
+			left: 3px;
+		}
+
+		&:hover,
+		&:checked {
+			background: $color-primary;
+		}
+
+		&:focus {
+			outline:none;
+		}
+	}	
+	
+}
+
+
+/* Image Responsive */
+
+.ir {
+	max-width: 100%;
+	height: auto;
+}
+
+@include breakpoint(tablet) {
+
+	nav.basic {
+		position: fixed;
+		z-index: 100;
+		top: 0;
+		left: 0;
+		width: 100%;
+		background: #222;
+		ul {
+			max-width: 770px;
+			margin: 0 auto;
+			@include clearfix;
+			padding: 0;
+			li {
+				float: left;
+				a {
+					display: block;
+					padding: 10px;
+					color: #fff;
+					font-weight: 100;
+					font-size: 0.9em;
+				}
+				ul {
+					display: none;
+					li {
+						float: none;
+						a {
+							color: #aaa;
+						}
+					}
+				}
+				&:hover {
+					ul {
+						display: block;
+						position: absolute;
+						z-index: 100;
+						background: #222;
+						li {
+							a {
+								&:hover {
+									color: #fff;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
 }
